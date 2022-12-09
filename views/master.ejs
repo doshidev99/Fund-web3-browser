@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="./js/jquery.js"></script>
+  <script src="./js/web3js-browser.js"></script>
+  <script src="./js/process.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="info">
+      <button id="btn_connect">Connect Meta Mask</button>
+      <h3 id="wallet_address"></h3>
+    </div>
+
+    <div id="install" style="display: none">
+      <h3>Install Meta Mask</h3>
+      <a href="https://metamask.io/download.html" target="_blank">Download</a>
+    </div>
+
+    <div id="inputForm">
+      <h2>Form request</h2>
+      <form id="form_deposit">
+        <input type="text" placeholder="Name" id="name">
+        <input type="text" placeholder="Amount" id="amount">
+        <button>Deposit</button>
+        <p>
+          <small id="pronounce" class="error"> </small>
+        </p>
+      </form>
+    </div>
+
+    <div>
+      <table id="studentList">
+        <tr>
+          <th>STT</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Amount</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

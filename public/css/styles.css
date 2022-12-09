@@ -1,0 +1,56 @@
+body {
+  color: #fff;
+  background: #050718;
+}
+
+#wrapper {
+  text-align: center;
+  width: 80%;
+  margin: 50px auto;
+}
+
+/* #studentList {
+  width: 100%;
+  min-height: 100px;
+  background: rgb(49, 47, 47);
+  margin-top: 20px;
+} */
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 7px 20px;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+input {
+  width: 200px;
+  padding: 7px 15px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  background: none;
+  color: #fff;
+}
+
+.error {
+  color: red;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: gray;
+}
