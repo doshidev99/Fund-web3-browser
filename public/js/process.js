@@ -1,156 +1,189 @@
+var SM_ABI = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_total",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_sender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"name": "Deposit",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_receiver",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "DepositSuccess",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"name": "deposit",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "flagCall",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getCountStudent",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "getStudentByIndex",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "studentList",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "total",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_receiver",
+				"type": "address"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+
+var SM_address = "0x61b55CD3e58b163ad15A9BdA9D43Ae62248AB67a";
+
 $(document).ready(function () {
   getListData();
 
-  const SM_ABI = [
-    {
-      inputs: [],
-      stateMutability: "nonpayable",
-      type: "constructor",
-    },
-    {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: false,
-          internalType: "uint256",
-          name: "_total",
-          type: "uint256",
-        },
-        {
-          indexed: false,
-          internalType: "address",
-          name: "_sender",
-          type: "address",
-        },
-        {
-          indexed: false,
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
-        {
-          indexed: false,
-          internalType: "string",
-          name: "_name",
-          type: "string",
-        },
-      ],
-      name: "Deposit",
-      type: "event",
-    },
-    {
-      inputs: [
-        {
-          internalType: "string",
-          name: "_name",
-          type: "string",
-        },
-      ],
-      name: "deposit",
-      outputs: [],
-      stateMutability: "payable",
-      type: "function",
-    },
-    {
-      inputs: [],
-      name: "getCountStudent",
-      outputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "uint256",
-          name: "_index",
-          type: "uint256",
-        },
-      ],
-      name: "getStudentByIndex",
-      outputs: [
-        {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-        {
-          internalType: "string",
-          name: "",
-          type: "string",
-        },
-      ],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
-      name: "studentList",
-      outputs: [
-        {
-          internalType: "address",
-          name: "_address",
-          type: "address",
-        },
-        {
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
-        {
-          internalType: "string",
-          name: "_name",
-          type: "string",
-        },
-      ],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [],
-      name: "total",
-      outputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "_to",
-          type: "address",
-        },
-      ],
-      name: "withdraw",
-      outputs: [],
-      stateMutability: "payable",
-      type: "function",
-    },
-  ];
-
-  const SM_address = "0x8767846347F885B4e4D9ec9c2Ea87673f4Ea4C4F";
   var web3 = new Web3(window.ethereum);
   window.ethereum.enable();
   var contractInstance = web3.eth.Contract(SM_ABI, SM_address);
@@ -220,6 +253,22 @@ $(document).ready(function () {
       });
   });
 
+  $("#withdraw").click(() => {
+    const receiver = $("#receiver").val();
+    contractInstance.methods
+      .withdraw(receiver)
+      .send({
+        from: currentAccount,
+      })
+      .on("transactionHash", (hash) => {
+        console.log({ hash });
+      })
+      .catch((err) => {
+        console.log({ err });
+        $("#pronounce").text(err.message);
+      });
+  });
+
   // Listen change account !
   window.ethereum.on("accountsChanged", (accounts) => {
     currentAccount = accounts[0];
@@ -242,155 +291,6 @@ const checkMetamask = () => {
 };
 
 const getContract = () => {
-  const SM_ABI = [
-    {
-      inputs: [],
-      stateMutability: "nonpayable",
-      type: "constructor",
-    },
-    {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: false,
-          internalType: "uint256",
-          name: "_total",
-          type: "uint256",
-        },
-        {
-          indexed: false,
-          internalType: "address",
-          name: "_sender",
-          type: "address",
-        },
-        {
-          indexed: false,
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
-        {
-          indexed: false,
-          internalType: "string",
-          name: "_name",
-          type: "string",
-        },
-      ],
-      name: "Deposit",
-      type: "event",
-    },
-    {
-      inputs: [
-        {
-          internalType: "string",
-          name: "_name",
-          type: "string",
-        },
-      ],
-      name: "deposit",
-      outputs: [],
-      stateMutability: "payable",
-      type: "function",
-    },
-    {
-      inputs: [],
-      name: "getCountStudent",
-      outputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "uint256",
-          name: "_index",
-          type: "uint256",
-        },
-      ],
-      name: "getStudentByIndex",
-      outputs: [
-        {
-          internalType: "address",
-          name: "",
-          type: "address",
-        },
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-        {
-          internalType: "string",
-          name: "",
-          type: "string",
-        },
-      ],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
-      name: "studentList",
-      outputs: [
-        {
-          internalType: "address",
-          name: "_address",
-          type: "address",
-        },
-        {
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
-        {
-          internalType: "string",
-          name: "_name",
-          type: "string",
-        },
-      ],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [],
-      name: "total",
-      outputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "_to",
-          type: "address",
-        },
-      ],
-      name: "withdraw",
-      outputs: [],
-      stateMutability: "payable",
-      type: "function",
-    },
-  ];
-  const SM_address = "0x8767846347F885B4e4D9ec9c2Ea87673f4Ea4C4F";
   const web3 = new Web3(window.ethereum || "https://goerli.infura.io/v3");
   window.ethereum.enable();
   const SM = web3.eth.Contract(SM_ABI, SM_address);
@@ -401,6 +301,9 @@ const getListData = async () => {
   const contractInstance = getContract();
 
   const studentSize = await contractInstance.methods.getCountStudent().call();
+  const balanceOfContract = await contractInstance.methods.total().call();
+
+  $("#balanceOfContract").text(balanceOfContract / Math.pow(10, 18));
 
   const getDataByIndex = async (index) => {
     const student = await contractInstance.methods
